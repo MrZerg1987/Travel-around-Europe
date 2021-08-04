@@ -1,0 +1,48 @@
+.next-travel {
+  width: 387px;
+
+  border-right: 1px solid $color-light-grey;
+
+  @media (max-width: $tablet-width) {
+    width: 395px;
+  }
+}
+
+.next-travel__title {
+  margin: 0;
+
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 32px;
+  color: $color-special-black;
+}
+
+.next-travel__list {
+  margin: 0;
+  margin-top: 20px;
+  padding: 0;
+
+  list-style: none;
+  columns: 3;
+}
+
+.next-travel__item {
+  margin-bottom: 10px;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: $color-dark-grey-opacity-50;
+
+  &:nth-child(n+6) {
+    margin-left: -4px;
+  }
+
+  &:nth-child(n+11) {
+    margin-left: -13px;
+  }
+}
+
+.next-travel__link:hover {
+  color: $color-red;
+}

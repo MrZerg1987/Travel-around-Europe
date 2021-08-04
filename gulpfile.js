@@ -148,13 +148,7 @@ const build = gulp.series(
   clean,
   copy,
   images,
-  gulp.parallel(
-    styles,
-    html,
-    scripts,
-    sprite,
-    createWebp
-  )
+  gulp.parallel(styles, html, scripts, sprite, createWebp)
 );
 
 exports.build = build;
@@ -164,17 +158,9 @@ exports.build = build;
 const start = gulp.series(
   clean,
   copy,
-  gulp.parallel(
-    styles,
-    html,
-    scripts,
-    sprite,
-    createWebp
-  ),
-  gulp.series(
-    server,
-    watcher
-  )
+  images,
+  gulp.parallel(styles, html, scripts, sprite, createWebp),
+  gulp.series(server, watcher)
 );
 
 exports.start = start;
