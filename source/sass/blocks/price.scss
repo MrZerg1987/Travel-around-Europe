@@ -1,14 +1,32 @@
 .price {
-  display: grid;
+  display: flex;
   margin-top: 256px;
-
-  grid-gap: 30px;
-  grid-template-columns: 377px 370px 1fr;
 
   @media (max-width: $tablet-width) {
     display: flex;
     flex-wrap: wrap;
     margin-top: 80px;
+  }
+
+  @media (max-width: $mobile-width) {
+    margin-top: 45px;
+  }
+}
+
+.price__variants {
+  display: grid;
+
+  grid-gap: 30px;
+  grid-template-columns: 1fr 1fr;
+
+  @media (max-width: $tablet-width) {
+    width: 100%;
+
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: $mobile-width) {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -32,6 +50,10 @@
 
       font-size: 18px;
       text-align: center;
+    }
+
+    @media (max-width: $mobile-width) {
+      margin: 20px auto 0;
     }
   }
 
@@ -151,9 +173,14 @@
   @media (max-width: $tablet-width) {
     position: relative;
 
-    width: 288px;
-    margin: 25px;
+    width: 100%;
+    margin: 25px 0;
     padding: 30px 20px 80px;
+  }
+
+  @media (max-width: $mobile-width) {
+    max-width: 450px;
+    margin: 25px auto;
   }
 }
 
@@ -206,22 +233,20 @@
     bottom: -28px;
     left: -3px;
 
-    width: 310px;
+    width: 100%;
     height: 1px;
 
     border-bottom: 1px solid $color-red;
   }
 
   @media (max-width: $tablet-width) {
-    width: 248px;
+    width: 100%;
 
     text-align: center;
 
     &::after {
       bottom: -10px;
       left: 0;
-
-      width: 248px;
     }
   }
 }
@@ -239,7 +264,7 @@
   color: $color-dark-blue;
 
   @media (max-width: $tablet-width) {
-    width: 248px;
+    width: 100%;
     margin-top: 20px;
   }
 }
@@ -280,9 +305,14 @@
   @media (max-width: $tablet-width) {
     position: relative;
 
-    width: 288px;
-    margin: 25px;
+    width: 100%;
+    margin: 25px 0;
     padding: 30px 20px 80px;
+  }
+
+  @media (max-width: $mobile-width) {
+    max-width: 450px;
+    margin: 25px auto;
   }
 }
 
@@ -335,22 +365,20 @@
     bottom: -27px;
     left: 0;
 
-    width: 310px;
+    width: 100%;
     height: 1px;
 
     border-bottom: 1px solid $color-dark-blue-opacity-30;
   }
 
   @media (max-width: $tablet-width) {
-    width: 248px;
+    width: 100%;
 
     text-align: center;
 
     &::after {
       bottom: -10px;
       left: 0;
-
-      width: 248px;
     }
   }
 }
@@ -367,7 +395,7 @@
   color: $color-dark-blue;
 
   @media (max-width: $tablet-width) {
-    width: 248px;
+    width: 100%;
     margin-top: 20px;
   }
 }
@@ -404,9 +432,11 @@
   @media (max-width: $tablet-width) {
     position: absolute;
     bottom: -3px;
-    left: -3px;
+    left: 50%;
 
-    width: 288px;
+    width: 101%;
     padding: 19px;
+
+    transform: translateX(-50%);
   }
 }

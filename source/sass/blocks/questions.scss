@@ -14,15 +14,24 @@
   }
 
   @media (max-width: $tablet-width) {
+    width: 100%;
     margin-top: 110px;
     padding: 70px 55px 74px;
 
     background-image: url("../img/content/form-background-tablet-@1x.jpg");
     background-position-x: 0;
+    background-size: cover;
 
     @media (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
       background-image: url("../img/content/form-background-tablet-@2x.jpg");
     }
+  }
+
+  @media (max-width: $mobile-width) {
+    padding: 50px 16px;
+
+    background-color: $color-background-grey;
+    background-image: none;
   }
 }
 
@@ -39,7 +48,16 @@
 
   @media (max-width: $tablet-width) {
     width: 658px;
+    margin: 0 auto;
     padding: 50px;
+  }
+
+  @media (max-width: $mobile-width) {
+    width: 100%;
+    padding: 0;
+
+    background-color: $color-background-grey;
+    box-shadow: none;
   }
 }
 
@@ -79,6 +97,14 @@
 
     background: $color-white;
     border: 1px solid $color-dark-blue-opacity-30;
+
+    @media (max-width: $mobile-width) {
+      width: 100%;
+    }
+
+    &:hover {
+      border: 1px solid $color-orange;
+    }
   }
 
   svg {
@@ -93,6 +119,10 @@ input[type="tel"] {
 
   margin-right: 18px;
   padding-left: 26px;
+
+  @media (max-width: $mobile-width) {
+    margin-right: 0;
+  }
 }
 
 .questions__button-submit {
