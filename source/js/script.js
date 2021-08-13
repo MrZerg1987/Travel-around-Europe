@@ -14,44 +14,61 @@ navToggle.addEventListener("click", function () {
 
 // Tabs
 
-const expandedButtons = document.querySelectorAll(".expanded__button");
+const expandedListButton = document.querySelector(".expanded__list-button")
+const expandedButtons = expandedListButton.querySelectorAll(".expanded__button");
 const expandedItemsDescription = document.querySelectorAll(".expanded__item-description");
+const cityTravel = ["greece", "albania", "macedonia", "montenegro", "croatia"];
 
-expandedButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    if (button.classList.contains("expanded__button--active")) {
-      button.classList.remove("expanded__button--active");
-    }
-    button.classList.add("expanded__button--active");
-    expandedItemsDescription.forEach((item) => {
-      if (item.classList.contains("expanded__item-description--active")) {
-        item.classList.remove("expanded__item-description--active");
+expandedListButton.addEventListener("click", (evt) => {
+  expandedButtons.forEach((button) => {
+    button.classList.remove("expanded__button--active");
+  });
+  expandedItemsDescription.forEach((item) => {
+    item.classList.remove("expanded__item-description--active");
+    cityTravel.forEach((city) => {
+      if (evt.target.id === `${city}` && item.id === `${city}-description`) {
+        item.classList.add("expanded__item-description--active");
       }
-      item.classList.add("expanded__item-description--active");
     });
   });
+  evt.target.classList.toggle("expanded__button--active");
 });
 
 // Question
 
 const questionButtonSubmit = document.querySelector(".questions__button-submit");
 const messageSuccess = document.querySelector(".message-success");
-const closeModalButton = document.querySelector(".close-modal-button");
+const closeModalButton = document.querySelector(".message-success__close-button");
+const telInput = document.querySelector("#tel-input");
 
 questionButtonSubmit.addEventListener("click", (evt) => {
   evt.preventDefault();
   messageSuccess.classList.add("message-success--active");
 });
 
-closeModalButton.addEventListener("click", (evt) => {
-  evt.preventDefault();
+closeModalButton.addEventListener("click", () => {
   messageSuccess.classList.remove("message-success--active");
 });
 
-window.addEventListener("keydown", (evt) => {
-  if (evt.key === 27) {
-    if (messageSuccess.classList.contains("message-success--active")) {
-      messageSuccess.classList.remove("message-success--active")
-    }
+document.addEventListener("keydown", (evt) => {
+  if (evt.key === 'Escape' || evt.key === 'Esc') {
+    messageSuccess.classList.remove("message-success--active");
   }
 });
+
+const telInputHandler = ({
+  target
+}) => {
+  if (target.validity.valueMissing) {
+    target.setCustomValidity('Обязательное поле');
+  } else {
+    target.setCustomValidity('');
+  }
+  target.reportValidity();
+};
+
+const initFormValidation = () => {
+  telInput.addEventListener('input', telInputHandler);
+};
+
+initFormValidation();
